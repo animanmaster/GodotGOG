@@ -381,7 +381,7 @@ void GodotGOGUserstats::_bind_methods() {
 
   ADD_SIGNAL(MethodInfo("leaderboards_retrieve_success"));
   ADD_SIGNAL(MethodInfo("leaderboards_retrieve_failure", PropertyInfo(Variant::INT, "failureReason")));
-  ADD_SIGNAL(MethodInfo("leaderboard_entries_retrieve_success", PropertyInfo(Variant::STRING, "name"), PropertyInfo(Variant::INT, "entries")));
+  ADD_SIGNAL(MethodInfo("leaderboard_entries_retrieve_success", PropertyInfo(Variant::STRING, "name"), PropertyInfo(Variant::ARRAY, "entries")));
   ADD_SIGNAL(MethodInfo("leaderboard_entries_retrieve_failure", PropertyInfo(Variant::STRING, "name"), PropertyInfo(Variant::INT, "failureReason")));
   ADD_SIGNAL(MethodInfo("leaderboard_score_update_success", PropertyInfo(Variant::STRING, "name"), PropertyInfo(Variant::INT, "score"), PropertyInfo(Variant::INT, "oldRank"), PropertyInfo(Variant::INT, "newRank")));
   ADD_SIGNAL(MethodInfo("leaderboard_score_update_failure", PropertyInfo(Variant::STRING, "name"), PropertyInfo(Variant::INT, "score"), PropertyInfo(Variant::INT, "failureReason")));
