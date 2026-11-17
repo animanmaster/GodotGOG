@@ -116,6 +116,8 @@ void GodotGOG::OnAuthFailure(galaxy::api::IAuthListener::FailureReason failureRe
   switch (failureReason) {
     case galaxy::api::IAuthListener::FailureReason::FAILURE_REASON_GALAXY_NOT_INITIALIZED:
       printf("GOG Galaxy not initialized, please call GOGInit() first!\n");
+      GOGStatus = GOG_INIT_NOT_INSTALLED;
+    break;
 
     case galaxy::api::IAuthListener::FailureReason::FAILURE_REASON_UNDEFINED:
     case galaxy::api::IAuthListener::FailureReason::FAILURE_REASON_GALAXY_SERVICE_NOT_AVAILABLE:
