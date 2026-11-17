@@ -80,7 +80,7 @@ bool GodotGOGUserstats::downloadLeaderboardEntries(const String &name, int count
 
   galaxy::api::Stats()->RequestLeaderboardEntriesAroundUser(name.utf8().get_data(), countBefore, countAfter, galaxy::api::User()->GetGalaxyID(), this);
   if (galaxy::api::GetError()) {
-    printf("GOG Galaxy: Failed to set stat (float): %s\n", galaxy::api::GetError()->GetMsg());
+    printf("GOG Galaxy: Failed to download leaderboard entries: %s\n", galaxy::api::GetError()->GetMsg());
 
     return false;
   }
@@ -368,7 +368,7 @@ void GodotGOGUserstats::_bind_methods() {
   ObjectTypeDB::bind_method(_MD("findLeaderboard", "name"), &GodotGOGUserstats::findLeaderboard);
   ObjectTypeDB::bind_method(_MD("findOrCreateLeaderboard", "name", "displayName", "sortMethod", "displayType"), &GodotGOGUserstats::findOrCreateLeaderboard);
   ObjectTypeDB::bind_method(_MD("getLeaderboardEntryCount", "name"), &GodotGOGUserstats::getLeaderboardEntryCount);
-  ObjectTypeDB::bind_method(_MD("downloadLeaderboardEntries", "rStart", "rEnd", "type"), &GodotGOGUserstats::downloadLeaderboardEntries);
+  ObjectTypeDB::bind_method(_MD("downloadLeaderboardEntries", "name", "countBefore", "countAfter"), &GodotGOGUserstats::downloadLeaderboardEntries);
   ObjectTypeDB::bind_method(_MD("setLeaderboardScore", "name", "score", "forceUpdate"), &GodotGOGUserstats::setLeaderboardScore);
   ObjectTypeDB::bind_method(_MD("getLeaderboardEntries"), &GodotGOGUserstats::getLeaderboardEntries);
 
